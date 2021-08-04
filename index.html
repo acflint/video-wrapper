@@ -24,6 +24,7 @@
               or on Amazon AWS.
             </li>
             <li>Paste the video and preview image links below.</li>
+            <li>Choose your settings.</li>
             <li>
               Use the generated embed code wherever you need a fullscreen video
               banner.
@@ -31,7 +32,7 @@
           </ol>
         </div>
       </div>
-      <div class="row">
+      <div class="row border-top py-3">
         <div class="col">
           <form>
             <div class="mb-3">
@@ -44,6 +45,7 @@
             </div>
 
             <div class="mb-3">
+              <label class="form-label d-block">Settings</label>
               <div class="btn-group" role="group" aria-label="Video Embed Options">
                 <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="controls" autocomplete="off">
                 <label class="btn btn-outline-info" for="controls">Controls</label>
@@ -62,16 +64,21 @@
               </div>
             </div>
 
-            <button onclick="generateEmbed(event)" class="btn btn-success">
-              Create Embed Code
-            </button>
-            <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
-              Reset Form
-            </button>
+
+            <div class="my-3 border-top py-3">
+              <button onclick="generateEmbed(event)" class="btn btn-success">
+                Create Embed Code
+              </button>
+              <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
+                Reset Form
+              </button>
+
+            </div>
+            
 
             <div class="my-3">
               <label for="embedCode" class="form-label">Embed Code</label>
-              <input type="textarea" disabled class="form-control" id="embedCode" rows='3'>
+              <textarea disabled class="form-control" id="embedCode" rows='5'></textarea> 
             </div>
           </form>
         </div>
