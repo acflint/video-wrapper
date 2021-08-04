@@ -33,23 +33,27 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="mb-3">
-            <label for="videoUrl" class="form-label">Video URL</label>
-            <input type="text" class="form-control" id="videoUrl" />
-          </div>
-          <div class="mb-3">
-            <label for="imageUrl" class="form-label">Preview Image URL</label>
-            <input type="text" class="form-control" id="imageUrl" />
-          </div>
-          <button onclick="generateEmbed()" class="btn btn-primary">
-            Create Embed Code
-          </button>
+          <form>
+            <div class="mb-3">
+              <label for="videoUrl" class="form-label">Video URL</label>
+              <input type="text" class="form-control" id="videoUrl" />
+            </div>
+            <div class="mb-3">
+              <label for="imageUrl" class="form-label">Preview Image URL</label>
+              <input type="text" class="form-control" id="imageUrl" />
+            </div>
+            <button onclick="generateEmbed(event)" class="btn btn-primary">
+              Create Embed Code
+            </button>
+            <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
+              Reset Form
+            </button>
 
-          <div class="my-3">
-            <label for="embedCode" class="form-label">Embed Code</label>
-            <input type="textarea" disabled class="form-control" id="embedCode" rows='3'>
-          </div>
-          
+            <div class="my-3">
+              <label for="embedCode" class="form-label">Embed Code</label>
+              <input type="textarea" disabled class="form-control" id="embedCode" rows='3'>
+            </div>
+          </form>
         </div>
       </div>
     </div>
