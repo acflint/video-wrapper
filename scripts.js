@@ -57,7 +57,6 @@ function gifMode(e) {
     document.querySelector("#autoplay").checked = false;
     document.querySelector("#muted").checked = false;
     document.querySelector("#loop").checked = false;
-    // document.querySelector("#controls").checked = true;
   }
   document.querySelector("#embedCode").value = "";
 }
