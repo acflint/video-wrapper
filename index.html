@@ -45,16 +45,16 @@
 
             <div class="mb-3">
               <div class="btn-group" role="group" aria-label="Video Embed Options">
-                <input type="checkbox" class="btn-check" id="controls" autocomplete="off">
+                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="controls" autocomplete="off">
                 <label class="btn btn-outline-info" for="controls">Controls</label>
 
-                <input type="checkbox" class="btn-check" id="autoplay" autocomplete="off">
+                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="autoplay" autocomplete="off">
                 <label class="btn btn-outline-info" for="autoplay">Autoplay</label>
 
-                <input type="checkbox" class="btn-check" id="muted" autocomplete="off">
+                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="muted" autocomplete="off">
                 <label class="btn btn-outline-info" for="muted">Muted</label>
 
-                <input type="checkbox" class="btn-check" id="loop" autocomplete="off">
+                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="loop" autocomplete="off">
                 <label class="btn btn-outline-info" for="loop">Loop</label>
 
                 <input type="checkbox" class="btn-check" id="gif" onchange="gifMode(event)" autocomplete="off">
