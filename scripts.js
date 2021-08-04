@@ -13,8 +13,8 @@ function generateEmbed(e) {
 
   var embedCodeEl = document.querySelector("#embedCode");
 
-  if (!url.length || !image.length) {
-    embedCode = "you dummy. you need a video and image url first.";
+  if (!url.length) {
+    embedCode = "you dummy. you need a video url first.";
   } else {
     embedCode +=
       "<div class='banner-video-wrapper' style='padding-top: 56.25%; position: relative; overflow: hidden'>";
@@ -33,8 +33,11 @@ function generateEmbed(e) {
     if (loop) {
       embedCode += "loop ";
     }
+    
+    if (image.length) {
+      embedCode += "poster='" + image + "' ";
+    }
 
-    embedCode += "poster='" + image + "' ";
     embedCode += "src='" + url + "'></video></div>";
   }
 
