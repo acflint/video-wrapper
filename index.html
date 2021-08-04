@@ -42,7 +42,27 @@
               <label for="imageUrl" class="form-label">Preview Image URL</label>
               <input type="text" class="form-control" id="imageUrl" />
             </div>
-            <button onclick="generateEmbed(event)" class="btn btn-primary">
+
+            <div class="mb-3">
+              <div class="btn-group" role="group" aria-label="Video Embed Options">
+                <input type="checkbox" class="btn-check" id="controls" autocomplete="off">
+                <label class="btn btn-outline-info" for="controls">Controls</label>
+
+                <input type="checkbox" class="btn-check" id="autoplay" autocomplete="off">
+                <label class="btn btn-outline-info" for="autoplay">Autoplay</label>
+
+                <input type="checkbox" class="btn-check" id="muted" autocomplete="off">
+                <label class="btn btn-outline-info" for="muted">Muted</label>
+
+                <input type="checkbox" class="btn-check" id="loop" autocomplete="off">
+                <label class="btn btn-outline-info" for="loop">Loop</label>
+
+                <input type="checkbox" class="btn-check" id="gif" onchange="gifMode(event)" autocomplete="off">
+                <label class="btn btn-outline-info" for="gif">GIF Mode</label>
+              </div>
+            </div>
+
+            <button onclick="generateEmbed(event)" class="btn btn-success">
               Create Embed Code
             </button>
             <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
