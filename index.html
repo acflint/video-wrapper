@@ -66,6 +66,15 @@
                 <input type="checkbox" class="btn-check" id="gif" onchange="gifMode(event)" autocomplete="off">
                 <label class="btn btn-outline-info" for="gif">GIF Mode</label>
               </div>
+              <label class="form-label d-block">Aspect Ratio</label>
+              <div class="btn-group" role="group" aria-label="Video Embed Options">
+
+                <input onchange="document.querySelector('#embedCode').value = '';" type="radio" class="btn-check" name="aspect" id="wide" autocomplete="off" checked>
+                <label class="btn btn-outline-info" for="wide">Wide Screen (16:9)</label>
+
+                <input onchange="document.querySelector('#embedCode').value = '';" type="radio" class="btn-check" name="aspect" id="square" autocomplete="off">
+                <label class="btn btn-outline-info" for="square">Square (1:1)</label>
+              </div>
             </div>
 
 

@@ -10,6 +10,12 @@ function generateEmbed(e) {
   var autoplay = document.querySelector("#autoplay").checked;
   var muted = document.querySelector("#muted").checked;
   var loop = document.querySelector("#loop").checked;
+  var square = document.querySelector("#square").checked;
+
+  var padding = '56.25%';
+  if (square) {
+    padding = "100%";
+  }
 
   var embedCodeEl = document.querySelector("#embedCode");
 
@@ -17,7 +23,7 @@ function generateEmbed(e) {
     embedCode = "you dummy. you need a video url first.";
   } else {
     embedCode +=
-      "<div class='banner-video-wrapper' style='padding-top: 56.25%; position: relative; overflow: hidden'>";
+      "<div class='banner-video-wrapper' style='padding-top: "+ padding +"; position: relative; overflow: hidden'>";
     embedCode +=
       "<video style='display: block; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px;' id='video' playsinline ";
 
