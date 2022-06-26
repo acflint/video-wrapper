@@ -1,108 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Wrapper</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <style>
-      .btn-outline-info:hover {
-        background-color: transparent;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>Video Wrapper</h1>
-          <ol>
-            <li>
-              Upload your video and preview image to a publicly accessible CDN (ie. Shopify Files, NationBuilder page attachements, or Amazon AWS)
-            </li>
-            <li>Paste the video and preview image links below.</li>
-            <li>Choose your settings.</li>
-            <li>
-              Use the generated embed code wherever you need a fullscreen video
-              banner.
-            </li>
-          </ol>
-        </div>
-      </div>
-      <div class="row border-top py-3">
-        <div class="col">
-          <form>
-            <div class="mb-3">
-              <label for="videoUrl" class="form-label">Video URL</label>
-              <input type="text" class="form-control" id="videoUrl" />
-            </div>
-            <div class="mb-3">
-              <label for="imageUrl" class="form-label">Preview Image URL (optional, but recommended)</label>
-              <input type="text" class="form-control" id="imageUrl" />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Wrapper</title>
 
-            <div class="mb-3">
-              <label class="form-label d-block">Settings</label>
-              <div class="btn-group" role="group" aria-label="Video Embed Options">
-                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="controls" autocomplete="off">
-                <label class="btn btn-outline-info" for="controls">Controls</label>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <style>
+    .btn-outline-info:hover {
+      background-color: transparent;
+    }
+  </style>
+</head>
 
-                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="autoplay" autocomplete="off">
-                <label class="btn btn-outline-info" for="autoplay">Autoplay</label>
-
-                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="muted" autocomplete="off">
-                <label class="btn btn-outline-info" for="muted">Muted</label>
-
-                <input onchange="document.querySelector('#embedCode').value = '';"type="checkbox" class="btn-check" id="loop" autocomplete="off">
-                <label class="btn btn-outline-info" for="loop">Loop</label>
-
-                <input type="checkbox" class="btn-check" id="gif" onchange="gifMode(event)" autocomplete="off">
-                <label class="btn btn-outline-info" for="gif">GIF Mode</label>
-              </div>
-              <label class="form-label d-block">Aspect Ratio</label>
-              <div class="btn-group" role="group" aria-label="Video Embed Options">
-
-                <input onchange="document.querySelector('#embedCode').value = '';" type="radio" class="btn-check" name="aspect" id="wide" autocomplete="off" checked>
-                <label class="btn btn-outline-info" for="wide">Wide Screen (16:9)</label>
-
-                <input onchange="document.querySelector('#embedCode').value = '';" type="radio" class="btn-check" name="aspect" id="square" autocomplete="off">
-                <label class="btn btn-outline-info" for="square">Square (1:1)</label>
-              </div>
-            </div>
-
-
-            <div class="my-3 border-top py-3">
-              <button onclick="generateEmbed(event)" class="btn btn-success">
-                Create Embed Code
-              </button>
-              <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
-                Reset Form
-              </button>
-
-            </div>
-            
-
-            <div class="my-3">
-              <label for="embedCode" class="form-label">Embed Code</label>
-              <textarea disabled class="form-control" id="embedCode" rows='5'></textarea> 
-            </div>
-          </form>
-        </div>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Video Wrapper</h1>
+        <ol>
+          <li>
+            Upload your video and preview image to a publicly accessible CDN (ie. Shopify Files, NationBuilder page
+            attachements, or Amazon AWS)
+          </li>
+          <li>Paste the video and preview image links below.</li>
+          <li>Choose your settings.</li>
+          <li>
+            Use the generated embed code wherever you need a fullscreen video
+            banner.
+          </li>
+        </ol>
       </div>
     </div>
-  </body>
+    <div class="row border-top py-3">
+      <div class="col">
+        <form>
+          <div class="mb-3">
+            <label for="videoUrl" class="form-label">Video URL</label>
+            <input type="text" class="form-control" id="videoUrl" />
+          </div>
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">Preview Image URL (optional, but recommended)</label>
+            <input type="text" class="form-control" id="imageUrl" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label d-block">Settings</label>
+            <div class="btn-group" role="group" aria-label="Video Embed Options">
+              <input onchange="clearEmbedCode();" type="checkbox" class="btn-check" id="controls" autocomplete="off">
+              <label class="btn btn-outline-info" for="controls">Controls</label>
+
+              <input onchange="clearEmbedCode();" type="checkbox" class="btn-check" id="autoplay" autocomplete="off">
+              <label class="btn btn-outline-info" for="autoplay">Autoplay</label>
+
+              <input onchange="clearEmbedCode();" type="checkbox" class="btn-check" id="muted" autocomplete="off">
+              <label class="btn btn-outline-info" for="muted">Muted</label>
+
+              <input onchange="clearEmbedCode();" type="checkbox" class="btn-check" id="loop" autocomplete="off">
+              <label class="btn btn-outline-info" for="loop">Loop</label>
+
+              <input onchange="gifMode(event)" type="checkbox" class="btn-check" id="gif" autocomplete="off">
+              <label class="btn btn-outline-info" for="gif">GIF Mode</label>
+            </div>
+            <label class="form-label d-block">Aspect Ratio</label>
+            <div class="btn-group" role="group" aria-label="Video Embed Options">
+              <input onchange="clearEmbedCode();" type="radio" class="btn-check" name="aspect" id="wide"
+                autocomplete="off" checked>
+              <label class="btn btn-outline-info" for="wide">Wide Screen (16:9)</label>
+
+              <input onchange="clearEmbedCode();" type="radio" class="btn-check" name="aspect" id="square"
+                autocomplete="off">
+              <label class="btn btn-outline-info" for="square">Square (1:1)</label>
+            </div>
+          </div>
+
+
+          <div class="my-3 border-top py-3">
+            <button onclick="generateEmbed(event)" class="btn btn-success">
+              Create Embed Code
+            </button>
+            <button onclick="event.preventDefault();document.querySelector('form').reset();" class="btn btn-secondary">
+              Reset Form
+            </button>
+
+          </div>
+
+
+          <div class="my-3">
+            <label for="embedCode" class="form-label">Embed Code</label>
+            <textarea disabled class="form-control" id="embedCode" rows='5'></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
 
 <script src="scripts.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-  crossorigin="anonymous"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

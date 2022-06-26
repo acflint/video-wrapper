@@ -66,3 +66,7 @@ function gifMode(e) {
   }
   document.querySelector("#embedCode").value = "";
 }
+
+function clearEmbedCode() {
+  document.querySelector('#embedCode').value = '';
+}
